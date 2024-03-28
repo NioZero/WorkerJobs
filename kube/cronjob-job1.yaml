@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: cronjob-job1
+spec:
+  schedule: "*/10 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: worker
+            image: workerapp:latest
+            args:
+            - "--job=Job1"
+          restartPolicy: OnFailure
