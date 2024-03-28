@@ -7,9 +7,9 @@ builder.ConfigureAppConfiguration((builter, b) =>
     b.AddCommandLine(args);
 });
 
-builder.ConfigureServices((hostContext, services) =>
+builder.ConfigureServices((builder, b) =>
 {
-    services.AddSingleton<Jobs>();
+    b.AddSingleton<Jobs>();
 });
 
 var app = builder.Build();
